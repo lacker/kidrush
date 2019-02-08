@@ -110,9 +110,16 @@ export default function render() {
   let [score, setScore] = useState(null);
   let [time, setTime] = useState(null);
 
-  console.log("XXX time", time);
-
   if (grid != null) {
+    setTimeout(() => {
+      if (time > 1) {
+        setTime(time - 1);
+      } else {
+        // Time up
+        setGrid(null);
+      }
+    }, 1000);
+
     return (
       <div className="App">
         {stringDisplay(score)}
@@ -147,6 +154,7 @@ export default function render() {
                         }
 
                         // Winning
+                        setScore(score + 1);
                         setGrid(newGrid());
                       }}
                     />
