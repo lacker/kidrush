@@ -4,7 +4,7 @@ import "./App.css";
 let SIZE = 6;
 
 // Let the ids be a bunch of possible colors
-let PARTS = ["00", "33", "66", "99", "CC", "FF"];
+let PARTS = ["00", "55", "AA", "FF"];
 let IDS = [];
 for (let x of PARTS) {
   for (let y of PARTS) {
@@ -48,36 +48,67 @@ function newGrid() {
   let numCells = SIZE * SIZE;
 
   // Make a list of ids where one of them is a duplicate
-  let ids = select(numCells - 1, IDS, IDS.length);
+  let ids = select(numCells - 1, IDS.length, IDS);
   shuffle(ids);
   let duplicateID = ids[0];
   ids.push(duplicateID);
   shuffle(ids);
+
+  let grid = [];
+  for (let x = 0; x < SIZE; x++) {
+    let row = [];
+    for (let y = 0; y < SIZE; y++) {
+      let index = x * SIZE + y;
+      let id = ids[index];
+      row.push({
+        x: x,
+        y: y,
+        id: id,
+        selected: false
+      });
+    }
+    grid.push(row);
+  }
+  return grid;
 }
 
 export default function render() {
   let [grid, setGrid] = useState(null);
-  if (grid == null) {
+  if (grid != null) {
     return (
-      <div
-        className="App"
-        onClick={() => {
-          console.log("XXX hello world");
-          setGrid(newGrid());
-        }}
-      >
+      <div className="App">
         <header className="App-header">
-          <p>TODO: add some instructions here</p>
-          <p>Tap anywhere to begin</p>
+          {grid.map((row, rowIndex) => {
+            return (
+              <div className="Row" key={rowIndex}>
+                {row.map((cell, cellIndex) => {
+                  return (
+                    <div
+                      className="Cell"
+                      key={cellIndex}
+                      style={{ backgroundColor: cell.id }}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
         </header>
       </div>
     );
   }
 
+  // Getting started screen
   return (
-    <div className="App">
+    <div
+      className="App"
+      onClick={() => {
+        setGrid(newGrid());
+      }}
+    >
       <header className="App-header">
-        <p>TODO: write some game logic here</p>
+        <p>Find as many matches as you can before time runs out.</p>
+        <p>Tap anywhere to begin!</p>
       </header>
     </div>
   );

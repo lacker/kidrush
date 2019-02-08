@@ -18,3 +18,16 @@
     color: white;
 }
 
+.Row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Cell {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    background-color: #FFFFFF;
+}
