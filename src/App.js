@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 
-let SIZE = 6;
+let SIZE = 5;
 
 // Let the ids be a bunch of possible colors
-let PARTS = ["00", "55", "AA", "FF"];
+let PARTS = ["00", "AA", "FF"];
 let IDS = [];
 for (let x of PARTS) {
   for (let y of PARTS) {
@@ -72,8 +72,28 @@ function newGrid() {
   return grid;
 }
 
+function deselect(grid) {
+  return grid.map(row =>
+    row.map(cell => {
+      return { ...cell, selected: false };
+    })
+  );
+}
+
+function getSelectedID(grid) {
+  for (let row of grid) {
+    for (let cell of row) {
+      if (cell.selected) {
+        return cell.id;
+      }
+    }
+  }
+  return null;
+}
+
 export default function render() {
   let [grid, setGrid] = useState(null);
+
   if (grid != null) {
     return (
       <div className="App">
@@ -86,7 +106,31 @@ export default function render() {
                     <div
                       className="Cell"
                       key={cellIndex}
-                      style={{ backgroundColor: cell.id }}
+                      style={{
+                        backgroundColor: cell.id,
+                        borderColor: cell.selected ? "#FFFFFF" : "#000000"
+                      }}
+                      onClick={() => {
+                        // Deselecting
+                        if (cell.selected) {
+                          cell.selected = false;
+                          setGrid(deselect(grid));
+                          return;
+                        }
+
+                        // Selecting
+                        let current = getSelectedID(grid);
+                        if (current !== cell.id) {
+                          let newGrid = deselect(grid);
+                          newGrid[cell.x][cell.y].selected = true;
+                          setGrid(newGrid);
+                          return;
+                        }
+
+                        // Winning
+                        console.log("XXX you win");
+                        setGrid(newGrid());
+                      }}
                     />
                   );
                 })}

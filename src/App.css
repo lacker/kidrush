@@ -30,4 +30,7 @@
     width: 100px;
     margin: 10px;
     background-color: #FFFFFF;
+    border-width: 5px;
+    border-color: #000000;
+    border-style: solid;
 }
