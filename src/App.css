@@ -5,17 +5,31 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.App-header {
     background-color: #282c34;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: stretch;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Spacer {
+    flex: 1;
+    flex-direction: column;
+    font-size: calc(20px + 4vmin);
+    display: flex;
+    align-items: stretch;
+}
+
+.Game {
+    height: 100vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .Row {

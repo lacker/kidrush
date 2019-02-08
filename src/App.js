@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 let SIZE = 5;
+let TIME = 45;
 
 // Let the ids be a bunch of possible colors
 let PARTS = ["00", "AA", "FF"];
@@ -91,13 +92,31 @@ function getSelectedID(grid) {
   return null;
 }
 
+function stringDisplay(s) {
+  return (
+    <div className="Spacer">
+      <div className="Spacer">
+        <p>{s}</p>
+      </div>
+      <div className="Spacer" />
+      <div className="Spacer" />
+      <div className="Spacer" />
+    </div>
+  );
+}
+
 export default function render() {
   let [grid, setGrid] = useState(null);
+  let [score, setScore] = useState(null);
+  let [time, setTime] = useState(null);
+
+  console.log("XXX time", time);
 
   if (grid != null) {
     return (
       <div className="App">
-        <header className="App-header">
+        {stringDisplay(score)}
+        <div className="Game">
           {grid.map((row, rowIndex) => {
             return (
               <div className="Row" key={rowIndex}>
@@ -128,7 +147,6 @@ export default function render() {
                         }
 
                         // Winning
-                        console.log("XXX you win");
                         setGrid(newGrid());
                       }}
                     />
@@ -137,7 +155,8 @@ export default function render() {
               </div>
             );
           })}
-        </header>
+        </div>
+        {stringDisplay(time)}
       </div>
     );
   }
@@ -147,10 +166,20 @@ export default function render() {
     <div
       className="App"
       onClick={() => {
+        setScore(0);
+        setTime(TIME);
         setGrid(newGrid());
       }}
     >
-      <header className="App-header">
+      <header
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column"
+        }}
+      >
+        {score === null ? null : <p>Your score was {score}.</p>}
         <p>Find as many matches as you can before time runs out.</p>
         <p>Tap anywhere to begin!</p>
       </header>
