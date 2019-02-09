@@ -187,7 +187,11 @@ export default function render() {
           flexDirection: "column"
         }}
       >
-        {score === null ? null : <p>Your score was {score}.</p>}
+        {score === null ? (
+          <p>Welcome to KIDRUSH</p>
+        ) : (
+          <p>Your score was {score}.</p>
+        )}
         <p>Find as many matches as you can before time runs out.</p>
         <p>Tap anywhere to begin!</p>
       </header>
