@@ -105,6 +105,28 @@ function stringDisplay(s) {
   );
 }
 
+function onCellClick(cell, grid, setGrid, score, setScore) {
+  // Deselecting
+  if (cell.selected) {
+    cell.selected = false;
+    setGrid(deselect(grid));
+    return;
+  }
+
+  // Selecting
+  let current = getSelectedID(grid);
+  if (current !== cell.id) {
+    let newGrid = deselect(grid);
+    newGrid[cell.x][cell.y].selected = true;
+    setGrid(newGrid);
+    return;
+  }
+
+  // Winning
+  setScore(score + 1);
+  setGrid(newGrid());
+}
+
 export default function render() {
   let [grid, setGrid] = useState(null);
   let [score, setScore] = useState(null);
@@ -136,27 +158,9 @@ export default function render() {
                         backgroundColor: cell.id,
                         borderColor: cell.selected ? "#FFFFFF" : "#000000"
                       }}
-                      onClick={() => {
-                        // Deselecting
-                        if (cell.selected) {
-                          cell.selected = false;
-                          setGrid(deselect(grid));
-                          return;
-                        }
-
-                        // Selecting
-                        let current = getSelectedID(grid);
-                        if (current !== cell.id) {
-                          let newGrid = deselect(grid);
-                          newGrid[cell.x][cell.y].selected = true;
-                          setGrid(newGrid);
-                          return;
-                        }
-
-                        // Winning
-                        setScore(score + 1);
-                        setGrid(newGrid());
-                      }}
+                      onClick={() =>
+                        onCellClick(cell, grid, setGrid, score, setScore)
+                      }
                     />
                   );
                 })}
