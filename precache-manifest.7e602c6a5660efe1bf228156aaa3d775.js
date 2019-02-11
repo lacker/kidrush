@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/kidrush/static/js/runtime~main.1be30df6.js"
   },
   {
-    "revision": "fe179d9985852eafbd83",
-    "url": "/kidrush/static/js/main.fe179d99.chunk.js"
+    "revision": "cea50600f39e44ad01b6",
+    "url": "/kidrush/static/js/main.cea50600.chunk.js"
   },
   {
     "revision": "7c60dad4794db4b90113",
     "url": "/kidrush/static/js/1.7c60dad4.chunk.js"
   },
   {
-    "revision": "fe179d9985852eafbd83",
+    "revision": "cea50600f39e44ad01b6",
     "url": "/kidrush/static/css/main.7a9ae070.chunk.css"
   },
   {
-    "revision": "a92bb5d2ee6dda6605dd8af33078be67",
+    "revision": "99d3910741d7ff15d55ca1599e7ef0b3",
     "url": "/kidrush/index.html"
   }
 ];
