@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 
+import leo1 from "./leo1.png";
+import leo2 from "./leo2.png";
+import kevin1 from "./kevin1.png";
+import grandma1 from "./grandma1.png";
+import grandpa1 from "./grandpa1.png";
+
 let SIZE = 4;
 let TIME = 45;
 let CELL = 150;
@@ -10,7 +16,7 @@ if (window.innerWidth < 700) {
 
 // Let the ids be a bunch of possible colors
 let PARTS = ["00", "AA", "FF"];
-let IDS = [];
+let IDS = [leo1, leo2, kevin1, grandma1, grandpa1];
 for (let x of PARTS) {
   for (let y of PARTS) {
     for (let z of PARTS) {
@@ -65,12 +71,18 @@ function newGrid() {
     for (let y = 0; y < SIZE; y++) {
       let index = x * SIZE + y;
       let id = ids[index];
-      row.push({
+      let data = {
         x: x,
         y: y,
         id: id,
         selected: false
-      });
+      };
+      if (id[0] === "#") {
+        data.color = id;
+      } else {
+        data.pic = id;
+      }
+      row.push(data);
     }
     grid.push(row);
   }
@@ -167,20 +179,27 @@ export default function render() {
             return (
               <div className="Row" key={rowIndex}>
                 {row.map((cell, cellIndex) => {
+                  let style = {
+                    borderColor: cell.selected ? "#FFFFFF" : "#000000",
+                    height: CELL + "px",
+                    width: CELL + "px"
+                  };
+                  if (cell.color) {
+                    style.backgroundColor = cell.color;
+                  }
                   return (
                     <div
                       className="Cell"
                       key={cellIndex}
-                      style={{
-                        backgroundColor: cell.id,
-                        borderColor: cell.selected ? "#FFFFFF" : "#000000",
-                        height: CELL + "px",
-                        width: CELL + "px"
-                      }}
+                      style={style}
                       onClick={() =>
                         onCellClick(cell, grid, setGrid, score, setScore)
                       }
-                    />
+                    >
+                      {cell.pic ? (
+                        <img src={cell.pic} height={CELL} width={CELL} />
+                      ) : null}
+                    </div>
                   );
                 })}
               </div>
