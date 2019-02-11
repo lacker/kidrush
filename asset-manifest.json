@@ -1,13 +1,13 @@
 {
-  "main.css": "/kidrush/static/css/main.307f7a72.chunk.css",
-  "main.js": "/kidrush/static/js/main.1f1a7ed9.chunk.js",
-  "main.js.map": "/kidrush/static/js/main.1f1a7ed9.chunk.js.map",
+  "main.css": "/kidrush/static/css/main.b29e5f51.chunk.css",
+  "main.js": "/kidrush/static/js/main.061a5eff.chunk.js",
+  "main.js.map": "/kidrush/static/js/main.061a5eff.chunk.js.map",
   "static/js/1.7c60dad4.chunk.js": "/kidrush/static/js/1.7c60dad4.chunk.js",
   "static/js/1.7c60dad4.chunk.js.map": "/kidrush/static/js/1.7c60dad4.chunk.js.map",
   "runtime~main.js": "/kidrush/static/js/runtime~main.1be30df6.js",
   "runtime~main.js.map": "/kidrush/static/js/runtime~main.1be30df6.js.map",
-  "static/css/main.307f7a72.chunk.css.map": "/kidrush/static/css/main.307f7a72.chunk.css.map",
+  "static/css/main.b29e5f51.chunk.css.map": "/kidrush/static/css/main.b29e5f51.chunk.css.map",
   "index.html": "/kidrush/index.html",
-  "precache-manifest.2a4c87681424271109dfbbc71d1717f6.js": "/kidrush/precache-manifest.2a4c87681424271109dfbbc71d1717f6.js",
+  "precache-manifest.adc30f5da62ee9d06f50bb31342dff71.js": "/kidrush/precache-manifest.adc30f5da62ee9d06f50bb31342dff71.js",
   "service-worker.js": "/kidrush/service-worker.js"
 }
