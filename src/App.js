@@ -5,7 +5,7 @@ let SIZE = 4;
 let TIME = 45;
 let CELL = 150;
 if (window.innerWidth < 700) {
-  CELL = 75;
+  CELL = 50;
 }
 
 // Let the ids be a bunch of possible colors
