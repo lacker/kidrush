@@ -1,11 +1,31 @@
 import React, { useState } from "react";
 import "./App.css";
 
+import alex1 from "./alex1.png";
+import alex2 from "./alex2.png";
+import alex3 from "./alex3.png";
+import anna1 from "./anna1.png";
+import anna2 from "./anna2.png";
+import anna3 from "./anna3.png";
+import grandma1 from "./grandma1.png";
+import grandma2 from "./grandma2.png";
+import grandpa1 from "./grandpa1.png";
+import kevin1 from "./kevin1.png";
+import kevin2 from "./kevin2.png";
+import kids1 from "./kids1.png";
+import kids2 from "./kids2.png";
+import kids3 from "./kids3.png";
+import kids4 from "./kids4.png";
+import kids5 from "./kids5.png";
 import leo1 from "./leo1.png";
 import leo2 from "./leo2.png";
-import kevin1 from "./kevin1.png";
-import grandma1 from "./grandma1.png";
-import grandpa1 from "./grandpa1.png";
+import leo3 from "./leo3.png";
+import leo4 from "./leo4.png";
+import leo5 from "./leo5.png";
+import zoe1 from "./zoe1.png";
+import zoe2 from "./zoe2.png";
+import zoe3 from "./zoe3.png";
+import zoe4 from "./zoe4.png";
 
 let SIZE = 4;
 let TIME = 45;
@@ -15,15 +35,33 @@ if (window.innerWidth < 700) {
 }
 
 // Let the ids be a bunch of possible colors
-let PARTS = ["00", "AA", "FF"];
-let IDS = [leo1, leo2, kevin1, grandma1, grandpa1];
-for (let x of PARTS) {
-  for (let y of PARTS) {
-    for (let z of PARTS) {
-      IDS.push("#" + x + y + z);
-    }
-  }
-}
+let IDS = [
+  alex1,
+  alex2,
+  alex3,
+  anna1,
+  anna2,
+  anna3,
+  grandma1,
+  grandma2,
+  grandpa1,
+  kevin1,
+  kevin2,
+  kids1,
+  kids2,
+  kids3,
+  kids4,
+  kids5,
+  leo1,
+  leo2,
+  leo3,
+  leo4,
+  leo5,
+  zoe1,
+  zoe2,
+  zoe3,
+  zoe4
+];
 
 // Copied from SO
 function shuffle(a) {
