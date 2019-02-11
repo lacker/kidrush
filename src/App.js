@@ -197,7 +197,12 @@ export default function render() {
                       }
                     >
                       {cell.pic ? (
-                        <img src={cell.pic} height={CELL} width={CELL} />
+                        <img
+                          src={cell.pic}
+                          height={CELL}
+                          width={CELL}
+                          alt="pic"
+                        />
                       ) : null}
                     </div>
                   );
