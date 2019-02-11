@@ -1,3 +1,8 @@
+body,
+html {
+  position: fixed;
+}
+
 .App {
     cursor: pointer;
     text-align: center;
@@ -40,8 +45,8 @@
 }
 
 .Cell {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     margin: 10px;
     background-color: #FFFFFF;
     border-width: 5px;

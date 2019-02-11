@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-let SIZE = 5;
+let SIZE = 4;
 let TIME = 45;
 
 // Let the ids be a bunch of possible colors
@@ -105,7 +105,15 @@ function stringDisplay(s) {
   );
 }
 
-function onCellClick(cell, grid, setGrid, score, setScore) {
+function onCellClick(
+  cell,
+  grid,
+  setGrid,
+  score,
+  setScore,
+  pausing,
+  setPausing
+) {
   // Deselecting
   if (cell.selected) {
     cell.selected = false;
@@ -131,6 +139,7 @@ export default function render() {
   let [grid, setGrid] = useState(null);
   let [score, setScore] = useState(null);
   let [time, setTime] = useState(null);
+  let [pausing, setPausing] = useState(false);
 
   if (grid != null) {
     setTimeout(() => {
@@ -138,7 +147,11 @@ export default function render() {
         setTime(time - 1);
       } else {
         // Time up
+        setPausing(true);
         setGrid(null);
+        setTimeout(() => {
+          setPausing(false);
+        }, 1000);
       }
     }, 1000);
 
@@ -178,6 +191,9 @@ export default function render() {
     <div
       className="App"
       onClick={() => {
+        if (pausing) {
+          return;
+        }
         setScore(0);
         setTime(TIME);
         setGrid(newGrid());
