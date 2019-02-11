@@ -3,6 +3,10 @@ import "./App.css";
 
 let SIZE = 4;
 let TIME = 45;
+let CELL = 150;
+if (window.innerWidth < 700) {
+  CELL = 100;
+}
 
 // Let the ids be a bunch of possible colors
 let PARTS = ["00", "AA", "FF"];
@@ -169,7 +173,9 @@ export default function render() {
                       key={cellIndex}
                       style={{
                         backgroundColor: cell.id,
-                        borderColor: cell.selected ? "#FFFFFF" : "#000000"
+                        borderColor: cell.selected ? "#FFFFFF" : "#000000",
+                        height: CELL + "px",
+                        width: CELL + "px"
                       }}
                       onClick={() =>
                         onCellClick(cell, grid, setGrid, score, setScore)

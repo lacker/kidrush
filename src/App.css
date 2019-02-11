@@ -45,8 +45,6 @@ html {
 }
 
 .Cell {
-    height: 150px;
-    width: 150px;
     margin: 10px;
     background-color: #FFFFFF;
     border-width: 5px;
