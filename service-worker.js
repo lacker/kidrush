@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/kidrush/precache-manifest.b5618d397e35dae672e3208a544d1200.js"
+  "/kidrush/precache-manifest.41218eaa9e936efe83084184eb16b45b.js"
 );
 
 workbox.clientsClaim();
